@@ -56,7 +56,7 @@ if (userPass) credentialsPlusAtSign = `${userName}:${userPass}@`;
       await gitClone(
         `https://${credentialsPlusAtSign}github.com/${item}`,
         item.split("/")[1]
-      );
+      ).catch(die);
 
       console.log(item);
     })
