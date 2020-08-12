@@ -1,4 +1,8 @@
 const axios = require("axios");
+const gitCloneSync = require("git-clone");
+const util = require("util");
+
+const gitClone = util.promisify(gitCloneSync);
 
 if (process.argv.length === 2)
   return console.log(`
@@ -40,6 +44,16 @@ if (userPass) credentialsPlusAtSign = `${userName}:${userPass}@`;
     repos.push(...data.map((item) => item.full_name));
     if (data.length < 100) break;
   }
+
+  if (toClone)
+    await Promise.all(
+      repos.map((item) =>
+        gitClone(
+          `https://${credentialsPlusAtSign}github.com/${item}`,
+          item.split("/")[1]
+        )
+      )
+    );
 
   console.log(repos.join("\n"));
 })();
