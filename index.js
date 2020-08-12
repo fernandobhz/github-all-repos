@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 const axios = require("axios");
 const gitCloneSync = require("git-clone");
 const util = require("util");
