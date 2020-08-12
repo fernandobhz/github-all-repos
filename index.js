@@ -6,7 +6,7 @@ const gitClone = util.promisify(gitCloneSync);
 
 if (process.argv.length === 2)
   return console.log(`
-    usage: github-all-repos -u username [-p [password]] [--clone]
+    usage: githubdown -u username [-p [password]] [--clone]
 `);
 
 const argExist = (argName) => process.argv.find((item) => item === argName);
