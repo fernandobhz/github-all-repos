@@ -1,0 +1,14 @@
+{
+  "name": "github-all-repos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fernandobhz/github-all-repos.git",
+  "author": "Fernando Reis Guimarães <fernandobhz@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
