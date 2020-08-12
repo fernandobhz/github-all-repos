@@ -1,8 +1,9 @@
 {
-  "name": "github-all-repos",
+  "name": "githubdown",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/fernandobhz/github-all-repos.git",
+  "bin": "index.js",
+  "repository": "https://github.com/fernandobhz/githubdown.git",
   "author": "Fernando Reis Guimarães <fernandobhz@gmail.com>",
   "license": "MIT",
   "scripts": {
