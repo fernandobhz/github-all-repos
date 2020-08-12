@@ -6,9 +6,6 @@
   "repository": "https://github.com/fernandobhz/githubdown.git",
   "author": "Fernando Reis Guimarães <fernandobhz@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "axios": "^0.19.2",
     "git-clone": "^0.1.0"
