@@ -7,7 +7,7 @@ const gitClone = util.promisify(gitCloneSync);
 
 if (process.argv.length === 2)
   return console.log(`
-    usage: githubdown -u username [-p [password]] [--clone]
+    usage: githubdown -u username [-p [password]] [--list-only]
 `);
 
 const argExist = (argName) => process.argv.find((item) => item === argName);
@@ -26,7 +26,7 @@ const die = (err) => {
   process.exit(err.number);
 };
 
-const toClone = argExist("--clone");
+const listOnly = argExist("--list-only");
 const userName = argValue("-u");
 const userPass = argValue("-p");
 
@@ -46,15 +46,19 @@ if (userPass) credentialsPlusAtSign = `${userName}:${userPass}@`;
     if (data.length < 100) break;
   }
 
-  if (toClone)
-    await Promise.all(
-      repos.map((item) =>
-        gitClone(
-          `https://${credentialsPlusAtSign}github.com/${item}`,
-          item.split("/")[1]
-        )
-      )
-    );
+  if (listOnly) {
+    console.log(repos.join("\n"));
+    return;
+  }
 
-  console.log(repos.join("\n"));
+  await Promise.all(
+    repos.map(async (item) => {
+      await gitClone(
+        `https://${credentialsPlusAtSign}github.com/${item}`,
+        item.split("/")[1]
+      );
+
+      console.log(item);
+    })
+  );
 })();

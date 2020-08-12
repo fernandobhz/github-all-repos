@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "args": ["-u", "fernandobhz", "--clone"],
+            "args": ["-u", "fernandobhz"],
             "program": "${workspaceFolder}\\index.js"
         }
     ]
